@@ -1,0 +1,27 @@
+{
+  "name": "weekone",
+  "version": "1.0.0",
+  "description": "Hello,World",
+  "keywords": [
+    "Hello",
+    "World"
+  ],
+  "license": "ISC",
+  "author": "Parvin Ruth Tusiime",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.1",
+    "pug": "^3.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
