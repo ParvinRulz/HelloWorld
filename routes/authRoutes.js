@@ -12,7 +12,8 @@ router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
     const newUser = new Registration(req.body);
-    await newUser.save();
+    await Registration.register(newUser, (req.body.password));
+    console.log("user save")
     res.redirect("/auth/login");
   } catch (error) {
     console.error(error) 

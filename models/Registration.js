@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose').default || require("passport-local-mongoose");
 
 const registrationSchema = new mongoose.Schema({
   firstName: {
@@ -19,10 +20,9 @@ const registrationSchema = new mongoose.Schema({
   },
   role:{
     type: String
-  },
-  password:{
-    type: String
   }
+
 });
+registrationSchema.plugin(passportLocalMongoose, {usernameField: "email"});
 
 module.exports = mongoose.model('Registration', registrationSchema);
