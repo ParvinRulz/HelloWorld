@@ -71,7 +71,6 @@ app.use("/", vehicleRoutes);
 app.use("/", batteryRoutes);
 app.use("/", dashboardRoutes);
 app.use("/", listsRoutes);
-
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 // This will always be the last endpoint in this file
 app.use((req, res) => {
