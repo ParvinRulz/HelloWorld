@@ -1,0 +1,107 @@
+doctype html
+| PASTE YOUR HTML CODE HERE
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Lists Page
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB' crossorigin='anonymous')
+nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+    a.navbar-brand(href='#') Lists Page
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link.active(aria-current='page' href='#') Manager
+        li.nav-item
+          a.nav-link(href='#') Attendant
+        li.nav-item
+          a.nav-link(href='#') Admin
+.col-md-4
+  .card.shadow.dashboard-card.p-3.text-center
+    h5 USER REPORTS
+    h2.text-primary 5
+table.table
+  thead
+    tr
+      th(scope='col') USERNAME
+      th(scope='col') ROLE
+      th(scope='col') SHIFT-START
+      th(scope='col') SHIFT-STOP
+  tbody
+    tr
+      td TUSIIME PARVIN
+      td ADMIN
+      td 08: 00 AM
+      td 05:30 PM
+    tr
+      td KAGGWA HAM
+      td ADMIN
+      td 08: 00 AM
+      td 05: 30 PM
+    tr
+      td PROSCOVIA NAMUKASA
+      td MANAGER
+      td 08: 00 AM
+      td 05: 00 PM
+    tr
+      td TESH RINAH
+      td ATTENDANT
+      td 06: 00 PM
+      td 06:30 AM
+    tr
+      td JACKSON MAYINJA
+      td ATTENDANT
+      td 06: 00 PM
+      td 06:30 AM
+.col-md-4
+  .card.shadow.dashboard-card.p-3.text-center
+    h5 CAR REPORTS
+    h2.text-primary 3
+table.table
+  thead
+    tr
+      th(scope='col') TIME
+      th(scope='col') PLATE NUMBER
+      th(scope='col') VEHICLE TYPE
+      th(scope='col') STATUS
+      th(scope='col') ACTIONS
+  tbody
+    tr
+      td 10:45 AM
+      td UAX 452C
+      td WAGON
+      td PARKED
+      td ...
+    tr
+      td 11:32 AM
+      td UBG 128Y
+      td BODA BODA
+      td PARKED
+      td ...
+    tr
+      td 02:32 PM
+      td UBG 128Y
+      td SUV
+      td PARKED
+      td ...
+.col-md-4
+  .card.shadow.dashboard-card.p-3.text-center
+    h5 BATTERY REPORTS
+    h2.text-primary 2
+table.table
+  thead
+    tr
+      th(scope='col') BATTERY TYPE
+      th(scope='col') BATTERY SIZE
+      th(scope='col') VEHICLE TYPE
+  tbody
+    tr
+      td ABSORBENT GLASS MATT
+      td 12V
+      td BODA BODAS AND SMALL CARS
+    tr
+      td LITHIUM-ION
+      td 24V
+      td TRUCKS

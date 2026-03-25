@@ -14,6 +14,8 @@ const indexRoutes = require("./routes/indexRoute");
 const authRoutes = require("./routes/authRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const batteryRoutes = require("./routes/batteryRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
+const listsRoutes = require("./routes/listsRoutes");
 //2. Instantiations
 const app = express();
 const PORT = 3000;
@@ -54,12 +56,21 @@ passport.use(Registration.createStrategy());
 passport.serializeUser(Registration.serializeUser());
 passport.deserializeUser(Registration.deserializeUser());
 
+//Global variable to make the loggged in user available to all pug templates.
+//Passport automatically attaches the logged in user to req.user
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
+
 //5. Routes
 //Using imported routes
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("/", vehicleRoutes);
 app.use("/", batteryRoutes);
+app.use("/", dashboardRoutes);
+app.use("/", listsRoutes);
 
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 // This will always be the last endpoint in this file

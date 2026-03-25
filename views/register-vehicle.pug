@@ -66,23 +66,5 @@ head
           i.bi.bi-check-circle.me-2
           | Register Vehicle
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
-script.
-  document.addEventListener('DOMContentLoaded', function() {
-  const vehicleTypeSelect = document.getElementById('vehicleType');
-  const ninContainer = document.getElementById('ninContainer');
-  const ninInput = document.getElementById('ninNumber');
-  // Auto-fill current date and time
-  const now = new Date();
-  document.getElementById('arrivalDate').value = now.toISOString().split('T')[0];
-  document.getElementById('arrivalTime').value = now.toTimeString().slice(0,5);
-  vehicleTypeSelect.addEventListener('change', function() {
-  if (this.value === 'Boda-boda') {
-  ninContainer.style.display = 'block';
-  ninInput.setAttribute('required', 'required');
-  } else {
-  ninContainer.style.display = 'none';
-  ninInput.removeAttribute('required');
-  ninInput.value = ''; // Clear the input if they switch away from Boda-boda
-  }
-  });
-  });
+script(src="/js/vehicleRegister.js") 
+  

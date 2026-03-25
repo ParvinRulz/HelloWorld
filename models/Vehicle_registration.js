@@ -35,13 +35,39 @@ ninNumber: {
     trim: true
 },
 
+receiptNumber: {
+    type: String,
+    unique: true
+},
+
+
+status: {
+    type: String,
+    enum: ["Parked", "Signed-out"],
+    default: "Parked"
+},
+
 arrivalDate: {
     type: Date
 },
 
 arrivalTime: {
     type: String,
-}
+},
+
+receiptNumber: {
+    type: String,
+    unique: true,
+    sparse: true     // This tells Mongoose to allow multiple missing values
+},
+
+
+status: {
+    type: String,
+    enum: ["Parked", "Signed-out"],
+    default: "Parked"
+},
 });
+
 
 module.exports = mongoose.model("Vehicle", vehicleRegistration);
