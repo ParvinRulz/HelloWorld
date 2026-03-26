@@ -28,33 +28,21 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
 table.table
   thead
     tr
-      th(scope='col') USERNAME
-      th(scope='col') ROLE
-      th(scope='col') SHIFT-START
-      th(scope='col') SHIFT-STOP
+      th(scope='col') First Name
+      th(scope='col') Last Name
+      th(scope='col') Email
+      th(scope='col') Phone
+      th(scope='col') Role
   tbody
-    tr
-      td TUSIIME PARVIN
-      td ADMIN
-      td 08: 00 AM
-      td 05:30 PM
-    tr
-      td KAGGWA HAM
-      td ADMIN
-      td 08: 00 AM
-      td 05: 30 PM
-    tr
-      td PROSCOVIA NAMUKASA
-      td MANAGER
-      td 08: 00 AM
-      td 05: 00 PM
-    tr
-      td TESH RINAH
-      td ATTENDANT
-      td 06: 00 PM
-      td 06:30 AM
-    tr
-      td JACKSON MAYINJA
-      td ATTENDANT
-      td 06: 00 PM
-      td 06:30 AM
+    if users.length
+      each user in users
+        tr
+          td #{user.firstName}
+          td #{user.lastName}
+          td #{user.email}
+          td #{user.phoneNumber}
+          td #{user.role}
+    else
+      tr
+        td.text-center.py-4.text-muted(colspan="4") No users found.
+    

@@ -28,27 +28,31 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
 table.table
   thead
     tr
-      th(scope='col') TIME
-      th(scope='col') PLATE NUMBER
-      th(scope='col') VEHICLE TYPE
-      th(scope='col') STATUS
-      th(scope='col') ACTIONS
+      th(scope='col') Driver Name
+      th(scope='col') Phone Number
+      th(scope='col') Vehicle Type
+      th(scope='col') Plate Number
+      th(scope='col') Vehicle Model
+      th(scope='col') Vehicle Color
+      th(scope='col') Arrival Date
+      th(scope='col') Arrival Time
+      th(scope='col') Status
+
   tbody
-    tr
-      td 10:45 AM
-      td UAX 452C
-      td WAGON
-      td PARKED
-      td ...
-    tr
-      td 11:32 AM
-      td UBG 128Y
-      td BODA BODA
-      td PARKED
-      td ...
-    tr
-      td 02:32 PM
-      td UBG 128Y
-      td SUV
-      td PARKED
-      td ...
+    if cars.length
+      each car in cars
+        tr
+          td #{car.driverName}
+          td #{car.phoneNumber}
+          td #{car.vehicleType}
+          td #{car.numberPlate}
+          td #{car.vehicleModel}
+          td #{car.vehicleColor}
+          td #{car.arrivalDate}
+          td #{car.arrivalTime}
+          td #{car.status}
+    else
+      tr
+        td.text-center.py-4.text-muted(colspan="4") No cars found.
+    
+    

@@ -1,5 +1,4 @@
 doctype html
-| PASTE YOUR HTML CODE HERE
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
@@ -29,15 +28,11 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
 table.table
   thead
     tr
-      th(scope='col') BATTERY TYPE
-      th(scope='col') BATTERY SIZE
-      th(scope='col') VEHICLE TYPE
+      th(scope='col') Battery Type
+      th(scope='col') Battery Size
   tbody
-    tr
-      td ABSORBENT GLASS MATT
-      td 12V
-      td BODA BODAS AND SMALL CARS
-    tr
-      td LITHIUM-ION
-      td 24V
-      td TRUCKS
+    if batteries.length
+      each battery in batteries
+        tr
+          td #{battery.batteryType}
+          td #{battery.batterySize}

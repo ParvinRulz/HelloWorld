@@ -14,7 +14,7 @@ const registrationSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  phone:{
+  phoneNumber:{
     type: String,
     trim: true
   },
