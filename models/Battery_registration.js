@@ -3,8 +3,10 @@ const batteryRegistration = new mongoose.Schema({
     batteryType: {
         type: String,
     },
-
     batterySize: {
+        type: String,
+    },
+    batteryImage: {
         type: String,
     }
 });

@@ -41,6 +41,7 @@ app.set("views", path.join(__dirname, "views")); //specifies the views directory
 // To parse URL encoded data
 app.use(express.urlencoded({ extended: false })); //This helpse to parse data from forms.
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'))
 app.use(expressSession({
   secret: process.env.SECRET,
   resave: false,

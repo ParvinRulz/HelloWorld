@@ -24,7 +24,9 @@ vehicleColor: {
     type: String,
     trim: true
 },
-
+vehicleImage: {
+    type: String,
+},
 ninNumber: {
     type: String,
     trim: true

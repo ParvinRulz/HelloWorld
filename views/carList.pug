@@ -28,6 +28,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary
 table.table
   thead
     tr
+      th(scope='col') Vehicle Image
       th(scope='col') Driver Name
       th(scope='col') Phone Number
       th(scope='col') Vehicle Type
@@ -42,6 +43,8 @@ table.table
     if cars.length
       each car in cars
         tr
+          td 
+            img(src="/"+car.vehicleImage alt="Vehicle image" width="150px", height="170px")
           td #{car.driverName}
           td #{car.phoneNumber}
           td #{car.vehicleType}

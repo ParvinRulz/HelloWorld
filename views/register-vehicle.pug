@@ -21,7 +21,7 @@ head
         | Vehicle Registration
       p.mb-0.small.text-white-50 Register vehicles on arrival [cite: 22]
     .card-body.p-4.p-md-5
-      form#vehicleRegistrationForm(method='post' action='/registerVehicle')
+      form#vehicleRegistrationForm(method='post' action='/registerVehicle' enctype="multipart/form-data")
         h5.text-primary.mb-3.border-bottom.pb-2 Driver Details
         .row.mb-4
           .col-md-6.mb-3.mb-md-0
@@ -51,6 +51,10 @@ head
           .col-md-6
             label.form-label.fw-semibold(for='vehicleColor') Vehicle Color
             input#vehicleColor.form-control(type='text' placeholder='e.g. White' name='vehicleColor')
+        .row.mb-3
+          .col-md-6.mb-3.mb-md-0
+            label.form-label.fw-semibold(for='vehicleImage') Vehicle Image
+            input#vehicleImage.form-control(type='file' placeholder='' name='vehicleImage')
         #ninContainer.mb-4(style='display: none;')
           label.form-label.fw-semibold.text-danger(for='ninNumber') NIN Number (Required for Boda-bodas)
           input#ninNumber.form-control.border-danger(type='text' placeholder='Enter valid NIN' name='ninNumber')
