@@ -18,7 +18,7 @@ router.get("/users", async (req, res) => {
 
 router.get("/cars", async (req, res) => {
     try {
-        let cars = await Vehicle.find().sort({$natural:-1})
+        let cars = await Vehicle.find({status:"Parked"}).sort({$natural:-1})
         res.render("carList", {cars});
     } catch (error) {
        res.status(400).send("Unable to find cars in the database") 
@@ -33,5 +33,6 @@ router.get("/batteries", async (req, res) => {
         res.status(400).send("Unable to find batteries in the database")  
     }
 });
+
 
 module.exports = router;

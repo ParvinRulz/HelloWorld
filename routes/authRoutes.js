@@ -27,7 +27,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  failureRedirect: "/login"
+  failureRedirect: "/auth/login"
 }), (req, res) => {
   if(req.user.role === "Admin") {
     res.redirect("/admin")
@@ -35,8 +35,9 @@ router.post("/login", passport.authenticate("local", {
     res.redirect("/dashboard")
   } else if(req.user.role === "Attendant") {
     res.redirect("/signout")
-  }else {}
+  }else {
   res.redirect("/");
+  }
 });
 
 router.get("/logout", (req, res, next) => {

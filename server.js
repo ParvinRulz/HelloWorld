@@ -16,6 +16,7 @@ const vehicleRoutes = require("./routes/vehicleRoutes");
 const batteryRoutes = require("./routes/batteryRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const listsRoutes = require("./routes/listsRoutes");
+const tireRoutes = require("./routes/tireRoutes");
 //2. Instantiations
 const app = express();
 const PORT = 3000;
@@ -72,6 +73,7 @@ app.use("/", vehicleRoutes);
 app.use("/", batteryRoutes);
 app.use("/", dashboardRoutes);
 app.use("/", listsRoutes);
+app.use("/", tireRoutes);
 //Non existant routes regardless of the method used(get, post, delete) will be caught by this middleware
 // This will always be the last endpoint in this file
 app.use((req, res) => {

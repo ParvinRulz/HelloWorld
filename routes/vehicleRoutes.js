@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
 const multer  = require('multer');
+const{ isAttendant} = require("../middleware/auth");
 
+//Import model files
 const Vehicle = require("../models/Vehicle_registration");
 
 //Image upload configurations
@@ -16,11 +18,11 @@ let storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
-router.get("/registerVehicle", (req, res) => {
+router.get("/registerVehicle", isAttendant, (req, res) => {
   res.render("register-vehicle");
 });
 
-router.post("/registerVehicle", upload.single("vehicleImage"), async (req, res) => {
+router.post("/registerVehicle", upload.single("vehicleImage"), isAttendant, async (req, res) => {
   try {
     const uniqueTicket = "RCPT-" + crypto.randomBytes(3).toString("hex").toUpperCase();
     const newVehicle = new Vehicle({
@@ -44,5 +46,33 @@ router.post("/registerVehicle", upload.single("vehicleImage"), async (req, res) 
     res.render("register-vehicle");
   }
 });
+
+//Update vehicle routes
+//Show the update form
+router.get("/vehicles/update/:id", async (req, res) => {
+  try {
+    const car = await Car.findById(req.params.id)
+    if(!car) return res.redirect("/carList")
+      res.render("updateVehicle", {car})
+  } catch (error) {
+    res.status(400).send("Unable to find vehicle in the Database.")
+  }
+})
+router.post("/vehicles/update/:id", async (req, res) => {
+  try {
+    await Car.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect("carList")
+  } catch (error) {
+      res.status(400).send("Unable to update car in the Database.")
+  }
+});
+router.post("/vehicles/delete", async (req, res) => {
+  try {
+    await Vehicle.deleteOne({_id:req.body.id});
+    res.redirect("/carList")
+  } catch (error) {
+    res.status(400).send("Unable to delete a car in the Database.")
+  }
+})
 
 module.exports = router;
