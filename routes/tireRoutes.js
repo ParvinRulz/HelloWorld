@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {isAuthenticated, isAdmin, isManager, isAttendant} = require("../Middleware/auth")
+const {isAuthenticated, isAdmin, isManager, isAttendant} = require("../middleware/auth")
 
-const Tire = require("../models/Tire_registration");
+const Tire = require("../models/TireTransactions");
 
 router.get("/tireServices", (req, res) => {
   res.render("tire");

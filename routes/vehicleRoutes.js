@@ -18,11 +18,11 @@ let storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
-router.get("/registerVehicle", isAttendant, (req, res) => {
+router.get("/registerVehicle", (req, res) => {
   res.render("register-vehicle");
 });
 
-router.post("/registerVehicle", upload.single("vehicleImage"), isAttendant, async (req, res) => {
+router.post("/registerVehicle", upload.single("vehicleImage"), async (req, res) => {
   try {
     const uniqueTicket = "RCPT-" + crypto.randomBytes(3).toString("hex").toUpperCase();
     const newVehicle = new Vehicle({

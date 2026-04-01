@@ -31,11 +31,9 @@ ninNumber: {
     type: String,
     trim: true
 },
-arrivalDate: {
-    type: Date
-},
 arrivalTime: {
-    type: String,
+    type: Date,
+    default: Date.now
 },
 receiptNumber: {
     type: String,
