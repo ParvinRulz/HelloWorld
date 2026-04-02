@@ -9,19 +9,19 @@ router.get("/manager", isManager, (req, res) => {
     res.render("managerDashboard");
 });
 
-router.get("/admin", async (req, res) => {
-  try {
-    //Determine the selected date, default to today if none is provided
-    const queryDate = req.query.date? new Date(req.query.date):new Date();
-    //Create start and end of the selected day for mongodb querying
-    const startOfDay = new Date(queryDate.setHours(0,0,0,0));
-    const endOfDay = new Date(queryDate.setHours(23,59,59,999));
-    //Query signedout vehicles for revenue
-    const signedOutVehicles = await
-  } catch (error) {
-  }
-    res.render("adminDashboard");
-});
+// router.get("/admin", async (req, res) => {
+//   try {
+//     //Determine the selected date, default to today if none is provided
+//     const queryDate = req.query.date? new Date(req.query.date):new Date();
+//     //Create start and end of the selected day for mongodb querying
+//     const startOfDay = new Date(queryDate.setHours(0,0,0,0));
+//     const endOfDay = new Date(queryDate.setHours(23,59,59,999));
+//     //Query signedout vehicles for revenue
+//     const signedOutVehicles = await
+//   } catch (error) {
+//   }
+//     res.render("adminDashboard");
+// });
 
 router.get("/attendant", isAttendant, (req, res) => {
     res.render("attendantDashboard");
