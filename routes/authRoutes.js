@@ -32,9 +32,9 @@ router.post("/login", passport.authenticate("local", {
   if(req.user.role === "Admin") {
     res.redirect("/admin")
   }else if(req.user.role === "Manager") {
-    res.redirect("/dashboard")
+    res.redirect("/manager")
   } else if(req.user.role === "Attendant") {
-    res.redirect("/signout")
+    res.redirect("/attendant")
   }else {
   res.redirect("/");
   }
