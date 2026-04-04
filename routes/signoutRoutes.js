@@ -25,16 +25,16 @@ router.post("/signout/verify", async (req, res) => {
 
 router.post("/signout/confirm", async (req, res) => {
     try {
-       const newSignout = await SignOut(req.body)
+       const newSignout = new SignOut(req.body)
        const savedSignOut =  await newSignout.save();
        await Vehicle.findByIdAndUpdate(req.body.vehicleId,{status: "Signed-out"})
        res.redirect(`/signout/receipt/${savedSignOut._id}`)
     } catch (error) {
-        res.render("signOut");
+        res.status(400).send("Failed to signout a car");
     }
 });
 
-router.post("/signout/receipt/:id", async (req, res) => {
+router.get("/signout/receipt/:id", async (req, res) => {
     try {
        const record = await SignOut.findById(req.params.id).populate("vehicleId")
        if(!record)

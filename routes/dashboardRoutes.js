@@ -23,9 +23,14 @@ router.get("/manager", isManager, (req, res) => {
 //     res.render("adminDashboard");
 // });
 
-router.get("/attendant", isAttendant, (req, res) => {
-    res.render("attendantDashboard");
-});
+router.get("/attendant", isAttendant, async (req, res) => {
+  try {
+         let cars = await Vehicle.find({status:"Parked"}).sort({$natural:-1})
+         res.render("attendantDashboard", {cars});
+  } catch (error) {
+    
+  }
+})
 
 router.get("/usersList", isAdmin, async (req, res) => {
   try {
