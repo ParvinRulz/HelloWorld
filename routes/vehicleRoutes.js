@@ -5,7 +5,7 @@ const multer  = require('multer');
 const{ isAttendant} = require("../middleware/auth");
 
 //Import model files
-const Vehicle = require("../models/Vehicle_registration");
+const Vehicle = require("../models/VehicleRegistration");
 
 //Image upload configurations
 let storage = multer.diskStorage({
@@ -74,5 +74,6 @@ router.post("/vehicles/delete", async (req, res) => {
     res.status(400).send("Unable to delete a car in the Database.")
   }
 })
+
 
 module.exports = router;

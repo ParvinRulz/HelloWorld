@@ -3,7 +3,7 @@ const router = express.Router();
 const calculateParkingFee = require("../utils/feeCalculator");
 
 //Import models
-const Vehicle = require("../models/Vehicle_registration")
+const Vehicle = require("../models/VehicleRegistration")
 const SignOut = require("../models/SignOut")
 
 router.get("/signout", (req, res) => {
@@ -44,16 +44,5 @@ router.get("/signout/receipt/:id", async (req, res) => {
         res.render("signOut");
     }
 });
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;

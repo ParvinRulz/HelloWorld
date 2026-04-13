@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const{ isManager} = require("../middleware/auth");
 
-const Battery = require("../models/Battery_registration");
+const Battery = require("../models/BatteryRegistration");
 
 //Image upload configurations
 let storage = multer.diskStorage({

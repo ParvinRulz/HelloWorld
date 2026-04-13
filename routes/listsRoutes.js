@@ -3,8 +3,8 @@ const router = express.Router();
 
 //Import model files
 const Registration = require("../models/Registration");
-const Vehicle = require("../models/Vehicle_registration");
-const Battery = require("../models/Battery_registration");
+const Vehicle = require("../models/VehicleRegistration");
+const Battery = require("../models/BatteryRegistration");
 
 router.get("/users", async (req, res) => {
     try {
