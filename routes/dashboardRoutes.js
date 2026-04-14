@@ -7,7 +7,7 @@ const Registration = require("../models/Registration");
 const Vehicle = require("../models/VehicleRegistration");
 const Battery = require("../models/BatteryRegistration");
 const Signout = require("../models/SignOut");
-const TyreTransaction = require("../models/TireTransaction");
+const TireTransaction = require("../models/TireTransaction");
 const BatteryTranction = require("../models/BatteryTransaction");
 const { isAdmin, isAttendant, isManager } = require("../middleware/auth");
 
